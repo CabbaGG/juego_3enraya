@@ -1,12 +1,15 @@
 let juegan = "X"
 
 function marcarCasilla(evt) {
+    if (evt.currentTarget.textContent !== "") {
+        return;
+    }
     evt.currentTarget.textContent = juegan;
     if (juegan === "X") {
         juegan = "O";
     } else {
         juegan = "X";
-    }
+    } 
 }
 
 
