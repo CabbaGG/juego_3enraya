@@ -17,11 +17,22 @@
             grid-template-columns: 100px 100px 100px;
             grid-template-rows: 100px 100px 100px;
             gap: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         .casilla {
             border: 1px solid black;
             border-radius: 10px;
+            display: flex;
+            font-size: 70px;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+        #reiniciar {
+            display: none;
+            margin: auto;
+            margin-top: 20px;
         }
     </style>
     <script src="juego.js" defer></script>
@@ -42,6 +53,7 @@
             <div class="casilla"></div>
         </div>
     </section>
+    <input type="button" value="reiniciar" id="reiniciar">
 </body>
 
 </html>
