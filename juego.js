@@ -1,6 +1,8 @@
-let juegan = "X"
-let CASILLAS_LLENAS = 0
-
+let juegan = "X";
+let CASILLAS_LLENAS = 0;
+let ganador;
+let victoriasX = 0;
+let victoriasO = 0;
 
 function marcarCasilla(evt) {
     if (evt.currentTarget.textContent !== "") {
@@ -23,33 +25,55 @@ function evaluarPartida() {
 
     if (x[0] === x[1] &&  x[0] === x[2] && x[1] === x[2] && x[0] != "") {
         console.log('ganaste hor1')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[3] === x[4] &&  x[3] === x[5] && x[4] === x[5] && x[3] != "") {
         console.log('ganaste hor2')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[6] === x[7] &&  x[6] === x[8] && x[7] === x[8] && x[6] != "") {
         console.log('ganaste hor3')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[0] === x[3] &&  x[0] === x[6] && x[3] === x[6] && x[0] != "") {
         console.log('ganaste vert1')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[1] === x[4] &&  x[1] === x[7] && x[4] === x[7] && x[1] != "") {
         console.log('ganaste vert2')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[2] === x[5] &&  x[2] === x[8] && x[5] === x[8] && x[2] != "") {
         console.log('ganaste vert3')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[0] === x[4] &&  x[0] === x[8] && x[4] === x[8] && x[0] != "") {
         console.log('ganaste diag1')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (x[2] === x[4] &&  x[2] === x[6] && x[4] === x[6] && x[2] != "") {
         console.log('ganaste diag2')
+        ganador = juegan;
         btnReiniciar.style.display = 'block';
     } else if (CASILLAS_LLENAS == 9) {
         console.log('perdieron los dos')
         btnReiniciar.style.display = 'block';
     }
-    
+    conteoVictorias();
+}
+
+function conteoVictorias() {
+    const contadorJugX = document.getElementById('contadorJugX');
+    const contadorJugO = document.getElementById('contadorJugO');
+
+    if (ganador == "X") {
+        victoriasO++;
+    } else if(ganador == "O") {
+        victoriasX++;
+    }
+    ganador = "";
+    contadorJugX.textContent = victoriasX;
+    contadorJugO.textContent = victoriasO;
 }
 
 function reiniciar() {
